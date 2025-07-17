@@ -1,23 +1,37 @@
 /* Reset e estilos base */
+:root {
+    --blue: #0D4B6E;
+    --yellow: #FFD700;
+    --green: #27AE60;
+    --red: #E74C3C;
+    --light-blue: #E8F4FC;
+    --light-yellow: #FFF3CD;
+    --light-green: #E8F5E9;
+    --light-red: #FDEDEC;
+    --gray: #555;
+    --light-gray: #f5f5f5;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     color: #333;
-    background-color: #f5f5f5;
+    background-color: var(--light-gray);
 }
 
 /* Cabeçalho */
 .header {
-    background-color: #0D4B6E;
+    background-color: var(--blue);
     color: white;
-    padding: 20px 0;
+    padding: 15px 0;
     text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .logo-container {
-    max-width: 200px;
+    max-width: 180px;
     margin: 0 auto;
 }
 
@@ -27,168 +41,497 @@ body {
 }
 
 .promo-banner {
-    background-color: #FFD700;
-    color: #0D4B6E;
-    padding: 10px;
+    background-color: var(--yellow);
+    color: var(--blue);
+    padding: 12px;
     font-weight: bold;
     margin-top: 15px;
+    font-size: 1.1rem;
 }
 
 /* Container principal */
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 30px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 0 20px;
 }
 
-/* Seção de introdução */
-.intro-section {
+/* Seção hero */
+.hero-section {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    padding: 30px 0;
 }
 
-.intro-section h1 {
-    color: #0D4B6E;
-    margin-bottom: 20px;
+.hero-section h1 {
+    color: var(--blue);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-section h1 span {
+    color: var(--red);
+}
+
+.hero-section h2 {
+    color: var(--gray);
+    font-weight: normal;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
 }
 
 .enem-dates {
     max-width: 100%;
     height: auto;
-    margin: 20px 0;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-top: 20px;
 }
 
-.intro-text {
+/* Estilos de seção */
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    color: var(--blue);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.divider {
+    height: 4px;
+    width: 80px;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.divider.blue {
+    background-color: var(--blue);
+}
+
+.divider.yellow {
+    background-color: var(--yellow);
+}
+
+.divider.green {
+    background-color: var(--green);
+}
+
+.divider.red {
+    background-color: var(--red);
+}
+
+/* Seção de problemas */
+.problem-section {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.problem-card {
+    text-align: center;
+    padding: 25px;
+    border-radius: 8px;
+    background-color: var(--light-blue);
+    transition: transform 0.3s;
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+}
+
+.problem-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.problem-card h3 {
+    color: var(--blue);
+    margin-top: 0;
+}
+
+/* Seção de solução */
+.solution-section {
+    background-color: var(--light-yellow);
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.solution-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.solution-text {
     font-size: 1.1rem;
-    color: #555;
 }
 
-/* Lista de conteúdo */
-.content-section {
-    margin: 40px 0;
-}
-
-.content-section h2 {
-    color: #0D4B6E;
-    border-bottom: 2px solid #E8F4FC;
-    padding-bottom: 10px;
-}
-
-.content-list {
+.solution-text ul {
     list-style-type: none;
     padding: 0;
 }
 
-.content-list li {
-    padding: 10px 0;
+.solution-text li {
+    margin-bottom: 15px;
     padding-left: 30px;
     position: relative;
 }
 
-.content-list li:before {
+.solution-text li:before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #27AE60;
+    color: var(--green);
     font-weight: bold;
 }
 
-/* Seção de preço */
-.pricing-section {
-    text-align: center;
-    margin: 40px 0;
+.solution-image {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.color-box {
     padding: 20px;
-    background-color: #f0f8ff;
     border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.price-box {
-    margin-bottom: 20px;
+.color-box.yellow {
+    background-color: var(--yellow);
+    color: var(--blue);
 }
 
-.original-price {
-    text-decoration: line-through;
-    color: #777;
+.color-box.blue {
+    background-color: var(--blue);
+}
+
+.color-box.green {
+    background-color: var(--green);
+}
+
+/* Seção de conteúdo */
+.content-section {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.content-card {
+    background-color: var(--light-gray);
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid var(--blue);
+}
+
+.content-card h3 {
+    color: var(--blue);
+    margin-top: 0;
+}
+
+/* Seção de depoimento */
+.testimonial-section {
+    background-color: var(--light-green);
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.testimonial-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 30px auto;
+    max-width: 700px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.testimonial-box:before {
+    content: """;
+    font-size: 5rem;
+    color: var(--green);
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    line-height: 1;
+    opacity: 0.2;
+}
+
+.author {
+    font-weight: bold;
+    color: var(--blue);
+    text-align: right;
+    margin-top: 20px;
+}
+
+.method-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.step {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-weight: bold;
     font-size: 1.2rem;
 }
 
-.discount-price {
-    color: #E74C3C;
-    font-size: 2rem;
+/* Seção de preços */
+.pricing-section {
+    background-color: var(--light-blue);
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.pricing-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.price-comparison {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.original, .discount {
+    flex: 1;
+}
+
+.original {
+    text-align: right;
+}
+
+.discount {
+    text-align: left;
+}
+
+.arrow {
+    font-size: 1.5rem;
+    color: var(--blue);
+}
+
+.price {
+    font-size: 1.8rem;
     font-weight: bold;
-    margin: 10px 0;
+    margin-top: 5px;
+}
+
+.original .price {
+    color: var(--gray);
+    text-decoration: line-through;
+}
+
+.discount .price {
+    color: var(--red);
 }
 
 .economy {
-    color: #27AE60;
+    color: var(--green);
     font-weight: bold;
+    font-size: 1.2rem;
+    margin: 20px 0;
 }
 
 .cta-button {
     display: inline-block;
-    padding: 15px 30px;
-    background-color: #27AE60;
+    padding: 18px 40px;
+    background-color: var(--green);
     color: white;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    font-size: 1.1rem;
-    transition: background-color 0.3s;
-    margin: 15px 0;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    margin: 20px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 400px;
 }
 
 .cta-button:hover {
     background-color: #2ECC71;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
 }
 
-.offer-note {
+.payment-info {
+    margin-top: 20px;
     font-size: 0.9rem;
-    color: #666;
+    color: var(--gray);
 }
 
-/* FAQ */
+.payment-info span {
+    font-weight: bold;
+    color: var(--red);
+}
+
+/* Seção FAQ */
 .faq-section {
-    margin-top: 40px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.faq-section h2 {
-    color: #0D4B6E;
-    margin-bottom: 20px;
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .faq-item {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
+    background-color: var(--light-gray);
+    padding: 25px;
+    border-radius: 8px;
 }
 
 .faq-item h3 {
-    color: #0D4B6E;
-    margin-bottom: 10px;
+    color: var(--blue);
+    margin-top: 0;
+}
+
+/* Seção de garantia */
+.guarantee-section {
+    margin-bottom: 60px;
+}
+
+.guarantee-box {
+    background-color: var(--blue);
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.guarantee-box h2 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.cta-final {
+    margin-top: 30px;
+}
+
+.cta-final p {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.cta-final span {
+    color: var(--yellow);
 }
 
 /* Rodapé */
 .footer {
+    background-color: var(--blue);
+    color: white;
+    padding: 30px 0;
     text-align: center;
-    padding: 20px;
-    color: #666;
-    font-size: 0.9rem;
-    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer a {
+    color: var(--yellow);
+    text-decoration: none;
 }
 
 /* Responsividade */
-@media (max-width: 600px) {
-    .container {
-        margin: 15px;
-        padding: 15px;
+@media (max-width: 768px) {
+    .solution-content {
+        grid-template-columns: 1fr;
     }
     
-    .discount-price {
-        font-size: 1.5rem;
+    .price-comparison {
+        flex-direction: column;
+    }
+    
+    .original, .discount {
+        text-align: center;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .problem-grid, .content-grid, .method-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .pricing-box {
+        padding: 25px;
     }
 }

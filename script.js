@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateCountdown() {
         const countdownElements = [
             document.getElementById('countdown'),
-            document.getElementById('countdown2')
+            document.getElementById('countdown2'),
+            document.getElementById('countdown3')
         ];
         
         seconds--;
@@ -24,8 +25,27 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         countdownElements.forEach(el => el.textContent = display);
+        
+        // Mudar cor quando faltar pouco tempo
+        if (minutes < 3) {
+            countdownElements.forEach(el => el.style.color = "#E74C3C");
+        }
     }
     
     updateCountdown(); // Chamada inicial
     const timer = setInterval(updateCountdown, 1000);
+    
+    // Efeito de hover nos cards
+    const cards = document.querySelectorAll('.problem-card, .content-card, .step');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 8px 15px rgba(0,0,0,0.1)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+            this.style.boxShadow = '';
+        });
+    });
 });
