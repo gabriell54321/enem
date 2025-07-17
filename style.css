@@ -1,3 +1,4 @@
+/* Estilos base (mantidos iguais) */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -15,10 +16,13 @@ body {
     font-weight: bold;
     font-size: 1.1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 30px auto;
     padding: 25px;
     background: white;
@@ -26,52 +30,115 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-h1 {
-    color: #0D4B6E;
+/* Novo estilo para o herói */
+.hero {
+    background-color: #0D4B6E;
+    color: white;
+    padding: 60px 20px;
     text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
-h1 span {
-    color: #E74C3C;
+.hero h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #FFD700;
+}
+
+.hero h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+/* Seções de conteúdo */
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #0D4B6E;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E8F4FC;
 }
 
 .feature-box {
+    background-color: #FDEDEC;
+    border-left: 4px solid #E74C3C;
+    padding: 20px;
+    margin: 30px 0;
+    font-size: 1.1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.solution-box {
     background-color: #E8F4FC;
     border-left: 4px solid #0D4B6E;
-    padding: 15px;
-    margin: 20px 0;
+    padding: 20px;
+    margin: 30px 0;
+    font-size: 1.1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Grade de benefícios */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.benefit-item {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 4px solid #27AE60;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-item .icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.benefit-item h3 {
+    color: #0D4B6E;
+    margin-top: 0;
+}
+
+/* Lista ordenada */
+.how-it-works ol {
+    padding-left: 20px;
     font-size: 1.1rem;
 }
 
-.benefits ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 30px 0;
+.how-it-works li {
+    margin-bottom: 15px;
+    padding-left: 10px;
 }
 
-.benefits li {
-    padding: 10px 0;
-    padding-left: 30px;
-    position: relative;
-    font-size: 1rem;
-}
-
-.benefits li:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 14px;
-    width: 20px;
-    height: 20px;
-    background-color: #27AE60;
-    border-radius: 50%;
+/* Seção de preço */
+.price-section {
+    text-align: center;
+    padding: 30px;
+    background: #f5faff;
+    border-radius: 8px;
+    margin: 50px 0;
 }
 
 .price-container {
-    text-align: center;
-    margin: 35px 0;
+    margin-bottom: 30px;
 }
 
 .old-price {
@@ -82,7 +149,7 @@ h1 span {
 
 .new-price {
     color: #E74C3C;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     margin: 10px 0;
 }
@@ -90,13 +157,14 @@ h1 span {
 .economy {
     color: #27AE60;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 button {
     display: block;
     width: 100%;
-    padding: 16px;
+    max-width: 400px;
+    padding: 18px;
     background-color: #27AE60;
     color: white;
     border: none;
@@ -111,6 +179,7 @@ button {
 button:hover {
     background-color: #2ECC71;
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
 }
 
 .pulse {
@@ -119,32 +188,52 @@ button:hover {
 
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(39, 174, 96, 0); }
+    70% { box-shadow: 0 0 0 15px rgba(39, 174, 96, 0); }
     100% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
 }
 
-.urgency-box {
+.guarantee {
     background-color: #FDEDEC;
     border-left: 4px solid #E74C3C;
     padding: 15px;
     margin-top: 30px;
     font-size: 1rem;
+    border-radius: 0 8px 8px 0;
 }
 
-.urgency-box p {
+.guarantee p {
     margin: 8px 0;
 }
 
+/* FAQ */
+.faq-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.faq-item h3 {
+    color: #0D4B6E;
+    margin-bottom: 10px;
+}
+
+/* Rodapé */
 footer {
     text-align: center;
-    margin-top: 20px;
-    padding: 20px;
+    margin-top: 50px;
+    padding: 30px;
     color: #666;
     font-size: 0.9rem;
+    background: #f0f0f0;
 }
 
 footer a {
     color: #0D4B6E;
     font-weight: bold;
     text-decoration: none;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
 }

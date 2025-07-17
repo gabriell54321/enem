@@ -1,32 +1,61 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Configuração do contador regressivo (15 minutos)
-    let minutes = 15;
-    let seconds = 0;
-    
-    function updateCountdown() {
-        const countdownDisplay = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        document.getElementById('countdown').textContent = countdownDisplay;
-        document.getElementById('countdown2').textContent = countdownDisplay;
+    // Contador regressivo mais robusto
+    function startCountdown() {
+        const countdownElements = [
+            document.getElementById('countdown'),
+            document.getElementById('countdown2')
+        ];
         
-        if (seconds === 0) {
-            if (minutes === 0) {
+        let minutes = 15;
+        let seconds = 0;
+        
+        function update() {
+            seconds--;
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+            }
+            
+            if (minutes < 0) {
                 // Oferta expirada
+                countdownElements.forEach(el => el.textContent = "00:00");
                 document.querySelector('.alert-bar').textContent = "🚨 OFERTA ENCERRADA!";
-                clearInterval(countdownTimer);
                 return;
             }
-            minutes--;
-            seconds = 59;
-        } else {
-            seconds--;
+            
+            const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            countdownElements.forEach(el => el.textContent = display);
+            
+            // Mudar cor quando faltar pouco tempo
+            if (minutes < 3) {
+                countdownElements.forEach(el => el.style.color = "#E74C3C");
+            }
         }
+        
+        update(); // Chamada inicial
+        const timer = setInterval(update, 1000);
     }
     
-    const countdownTimer = setInterval(updateCountdown, 1000);
-    updateCountdown(); // Chamada inicial
+    startCountdown();
     
-    // Redirecionamento para o checkout
-    document.getElementById('cta-button').addEventListener('click', function() {
-        window.location.href = "https://pay.cakto.com.br/32szcio_481174";
+    // Botão CTA
+    const ctaButton = document.getElementById('cta-button');
+    ctaButton.addEventListener('click', function() {
+        // Adicionar efeito de clique
+        ctaButton.style.transform = "scale(0.98)";
+        setTimeout(() => {
+            ctaButton.style.transform = "";
+            window.location.href = "https://pay.cakto.com.br/32szcio_481174";
+        }, 200);
+    });
+    
+    // Efeito de scroll suave para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     });
 });
