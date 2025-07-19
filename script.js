@@ -4,10 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let seconds = 0;
     
     function updateCountdown() {
-        const countdownElements = [
-            document.getElementById('countdown'),
-            document.getElementById('countdown2')
-        ];
+        const countdownElements = document.querySelectorAll('#countdown, #countdown2');
         
         seconds--;
         if (seconds < 0) {
