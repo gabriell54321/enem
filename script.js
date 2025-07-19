@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (minutes < 0) {
             // Oferta expirada
             countdownElements.forEach(el => el.textContent = "00:00");
-            document.querySelector('.urgency-bar').textContent = "Oferta encerrada!";
+            document.querySelector('.alert-bar').textContent = "⚠️ PROMOÇÃO ENCERRADA!";
             return;
         }
         
@@ -27,24 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Mudar cor quando faltar pouco tempo
         if (minutes < 3) {
-            countdownElements.forEach(el => el.style.color = "#E74C3C");
+            countdownElements.forEach(el => {
+                el.style.color = "#E74C3C";
+                el.style.fontWeight = "bold";
+            });
         }
     }
     
     updateCountdown(); // Chamada inicial
     const timer = setInterval(updateCountdown, 1000);
-    
-    // Efeito de hover nos cards de benefícios
-    const benefitCards = document.querySelectorAll('.benefit-card');
-    benefitCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-            this.style.boxShadow = '0 8px 15px rgba(0,0,0,0.1)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = '';
-            this.style.boxShadow = '';
-        });
-    });
 });
