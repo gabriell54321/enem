@@ -1,12 +1,13 @@
-// Contador regressivo
+// Contador Regressivo
 document.addEventListener('DOMContentLoaded', function() {
-    // Configura o contador regressivo
+    const countdownElement = document.getElementById('countdown');
+    const urgencyBar = document.getElementById('urgencyBar');
+    
     let minutes = 15;
     let seconds = 0;
-    const countdownElement = document.getElementById('countdown');
     
-    const countdownInterval = setInterval(function() {
-        // Atualiza o display
+    function updateCountdown() {
+        // Formata o tempo como MM:SS
         countdownElement.textContent = 
             minutes.toString().padStart(2, '0') + ':' + 
             seconds.toString().padStart(2, '0');
@@ -14,8 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Lógica do contador
         if (seconds === 0) {
             if (minutes === 0) {
-                clearInterval(countdownInterval);
-                document.querySelector('.promo-banner').textContent = "⏰ Oferta encerrada!";
+                // Quando o tempo acabar
+                urgencyBar.textContent = "⏰ Oferta encerrada!";
+                urgencyBar.style.backgroundColor = '#D32F2F';
                 return;
             }
             minutes--;
@@ -23,14 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             seconds--;
         }
-    }, 1000);
-
-    // Efeito de destaque quando faltam 5 minutos
-    setTimeout(function() {
-        const banner = document.querySelector('.promo-banner');
-        if (banner) {
-            banner.style.backgroundColor = '#D32F2F';
-            banner.style.fontWeight = '600';
+        
+        // Alerta visual quando faltam 5 minutos
+        if (minutes === 5 && seconds === 0) {
+            urgencyBar.style.backgroundColor = '#D32F2F';
+            urgencyBar.style.fontWeight = '700';
         }
-    }, 10 * 60 * 1000); // 10 minutos (5 minutos restantes)
+    }
+    
+    // Atualiza a cada segundo
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 });

@@ -3,30 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia de Estudos ENEM - Foco no Essencial</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Guia Estratégico ENEM - Saiba O Que Estudar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Seção Hero com imagem do e-book -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Guia Prático: <span>O Que Estudar</span> para o ENEM</h1>
-            <p>Foque nos conteúdos que realmente importam</p>
-            
-            <div class="ebook-container">
-                <!-- IMAGEM DO SEU E-BOOK QUE LEVA AO CHECKOUT -->
-                <a href="https://pay.cakto.com.br/32szcio_481174">
-                    <img src="capa-ebook-enem.jpg" alt="Guia ENEM - O Que Estudar" class="ebook-cover">
-                </a>
-            </div>
-            
-            <div class="price-box">
-                <div class="old-price">De: R$54,90</div>
-                <div class="new-price">Por: R$24,90</div>
-                <a href="https://pay.cakto.com.br/32szcio_481174" class="cta-button">COMPRAR AGORA</a>
-            </div>
+    <!-- Barra de Urgência -->
+    <div class="urgency-bar" id="urgencyBar">
+        <p>⏰ Promoção termina em: <span id="countdown">15:00</span> minutos!</p>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <img src="assets/enem-logo.png" alt="Logo ENEM" class="logo">
+            <h1>Guia Estratégico <span>ENEM</span></h1>
+            <p class="subtitle">Descubra exatamente o que estudar para maximizar sua pontuação</p>
         </div>
-    </section>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <!-- Seção do Produto -->
+        <section class="product-section">
+            <div class="product-info">
+                <h2>Não perca tempo estudando o que não cai na prova</h2>
+                <p>Nosso e-book mostra os tópicos que realmente valem pontos no ENEM:</p>
+                
+                <ul class="benefits-list">
+                    <li><strong>Priorização inteligente</strong> - Os conteúdos mais cobrados</li>
+                    <li><strong>Economia de tempo</strong> - Foco no que realmente importa</li>
+                    <li><strong>Planejamento eficaz</strong> - Como organizar seus estudos</li>
+                    <li><strong>Base real</strong> - Análise das últimas provas do ENEM</li>
+                </ul>
+            </div>
+            
+            <div class="product-offer">
+                <a href="https://pay.cakto.com.br/32szcio_481174" class="ebook-link">
+                    <img src="assets/ebook-cover.jpg" alt="E-book O Que Estudar para o ENEM" class="ebook-cover">
+                </a>
+                
+                <div class="pricing-box">
+                    <div class="price-old">De: R$54,90</div>
+                    <div class="price-new">Por apenas: R$24,90</div>
+                    <div class="price-discount">Você economiza R$30,00</div>
+                    <a href="https://pay.cakto.com.br/32szcio_481174" class="buy-button">COMPRAR AGORA</a>
+                    <p class="offer-warning">Esta oferta é válida por tempo limitado</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Contexto -->
+        <section class="context-section">
+            <img src="assets/enem-prova.jpg" alt="Prova do ENEM" class="enem-exam">
+            <div class="context-text">
+                <h3>O ENEM exige estratégia</h3>
+                <p>Com tantos conteúdos possíveis, saber priorizar é essencial. Nosso guia ajuda você a identificar onde focar seus esforços para obter os melhores resultados.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <p>Este material é independente e não possui afiliação com o INEP/MEC.</p>
+            <p>Suporte exclusivo: contatosuporteenem@gmail.com</p>
+            <p class="disclaimer">*Este produto não garante aprovação, mas oferece direcionamento estratégico para seus estudos.</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante de Compra -->
+    <div class="floating-button">
+        <a href="https://pay.cakto.com.br/32szcio_481174" class="buy-button">COMPRAR AGORA - R$24,90</a>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
-<link rel="stylesheet" href="style.css">
